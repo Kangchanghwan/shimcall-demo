@@ -221,6 +221,8 @@
   function toast(msg) { el.toast.textContent = msg; el.toast.classList.remove('hidden'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.toast.classList.add('hidden'), 2200); }
   window.addEventListener('storage', () => render()); // 관리자 화면에서 수정하면 즉시 반영 (데모)
 
+  // 고정 레이아웃 컨테이너가 프로그램적으로 스크롤되는 것 방지 (safety)
+  $('#app').addEventListener('scroll', (e) => { e.target.scrollTop = 0; });
   // 시작
   setSheet('peek'); render({ refit: true }); setTimeout(() => renderList(filtered()), 700); route();
 })();
