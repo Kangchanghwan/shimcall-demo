@@ -21,7 +21,7 @@
   function filtered() {
     let shops = Store.visibleShops();
     if (state.dongs.size) shops = shops.filter(s => state.dongs.has(`${s.city}/${s.dong}`));
-    if (state.openOnly) shops = shops.filter(s => Store.isOpenNow(s.hours));
+    if (state.openOnly) shops = shops.filter(s => Store.isOpenNow(s.hours) === true);
     return shops;
   }
   function render({ refit = false } = {}) {
@@ -44,16 +44,22 @@
       c.querySelector('.call').addEventListener('click', () => call(c.dataset.id));
     });
   }
+  function thumb(s, cls) {
+    return s.photos && s.photos.length
+      ? `<img class="${cls}" src="${s.photos[0]}" alt="" loading="lazy">`
+      : `<div class="${cls} noimg">${s.name.slice(0, 2)}</div>`;
+  }
   function cardHTML(s) {
-    const open = Store.isOpenNow(s.hours);
+    const ol = Store.openLabel(s.hours);
+    const dist = s.km < 1 ? Math.round(s.km * 1000) + 'm' : s.km.toFixed(1) + 'km';
     return `<div class="card ${s.id === state.activeId ? 'active' : ''}" data-id="${s.id}">
-      <img src="${s.photos[0]}" alt="" loading="lazy">
+      ${thumb(s, 'thumb')}
       <div class="info">
         <h3>${s.name}</h3>
-        <div class="meta"><span class="badge type">${s.type}</span><span class="badge ${open ? 'open' : 'closed'}">${open ? '영업중' : '영업종료'}</span></div>
-        <div class="meta" style="margin-top:6px">${s.dong} · ${s.km < 1 ? Math.round(s.km * 1000) + 'm' : s.km.toFixed(1) + 'km'} · ${s.hours.open}~${s.hours.close}</div>
+        <div class="meta"><span class="badge type">${s.type}</span><span class="badge ${ol.cls}">${ol.text}</span>${s.score ? `<span class="badge score">★ ${s.score}</span>` : ''}</div>
+        <div class="meta" style="margin-top:6px">${s.dong} · ${dist}${s.price ? ' · ' + s.price : ''}</div>
       </div>
-      <button class="call" aria-label="전화"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg></button>
+      <button class="call${s.phone ? '' : ' off'}" aria-label="전화"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg></button>
     </div>`;
   }
   function onMarkerClick(s) {
@@ -113,18 +119,18 @@
   function openDetail(id) { location.hash = `#shop/${id}`; }
   function renderDetail(id) {
     const s = Store.get(id); if (!s) return closeDetail();
-    const open = Store.isOpenNow(s.hours);
+    const ol = Store.openLabel(s.hours);
     el.detail.innerHTML = `
       <div class="detail-top"><button id="btnBack" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><b>${s.name}</b></div>
-      <div class="gallery">${s.photos.map(p => `<img src="${p}" alt="${s.name} 사진">`).join('')}</div>
+      ${s.photos && s.photos.length ? `<div class="gallery">${s.photos.map(p => `<img src="${p}" alt="${s.name} 사진">`).join('')}</div>` : '<div class="gallery"><div class="noimg big">사진 준비 중</div></div>'}
       <div class="detail-body">
-        <div class="meta" style="margin-bottom:8px"><span class="badge type">${s.type}</span> <span class="badge ${open ? 'open' : 'closed'}">${open ? '영업중' : '영업종료'}</span></div>
+        <div class="meta" style="margin-bottom:8px"><span class="badge type">${s.type}</span> <span class="badge ${ol.cls}">${ol.text}</span>${s.score ? ` <span class="badge score">★ ${s.score} (${s.reviews.toLocaleString()})</span>` : ''}</div>
         <h1>${s.name}</h1>
         <div class="muted">${s.city} ${s.gu !== s.city ? s.gu + ' ' : ''}${s.dong}</div>
         <div style="height:12px"></div>
         <div class="row"><svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>${s.address}</span><button class="link" id="btnCopy">복사</button></div>
-        <div class="row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>${Store.hoursLabel(s.hours)}</span></div>
-        <div class="row"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg><span>${s.phone}</span></div>
+        <div class="row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div>${Store.todayLabel(s.hours)}</div>${Store.weekLines(s.hours).length ? `<div class="week">${Store.weekLines(s.hours).map(w => `<span>${w.day}</span><span>${w.text}</span>`).join('')}</div>` : ''}</div></div>
+        <div class="row"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg><span>${s.phone || '전화번호가 등록되어 있지 않습니다'}</span></div>
         <h3 style="margin:20px 0 4px;font-size:15px">소개</h3>
         <p>${s.intro}</p>
         <div class="mini-map" id="miniMap"></div>
@@ -133,18 +139,18 @@
       </div>
       <div class="cta">
         <a class="route" href="https://map.kakao.com/link/to/${encodeURIComponent(s.name)},${s.lat},${s.lng}" target="_blank" rel="noopener">길찾기</a>
-        <a class="call" href="tel:${s.phone.replace(/-/g, '')}" id="btnCall"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg>전화하기</a>
+        <a class="call${s.phone ? '' : ' off'}" ${s.phone ? `href="tel:${s.phone.replace(/-/g, '')}"` : ''} id="btnCall"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg>전화하기</a>
       </div>`;
     el.detail.classList.remove('hidden'); el.detail.scrollTop = 0;
     $('#btnBack').addEventListener('click', () => history.back());
     $('#btnCopy').addEventListener('click', () => { navigator.clipboard?.writeText(s.address); toast('주소를 복사했어요'); });
-    $('#btnCall').addEventListener('click', () => { Store.logCall(s.id); toast(`${s.phone} 로 전화 연결`); });
+    $('#btnCall').addEventListener('click', () => { if (!s.phone) return toast('등록된 전화번호가 없습니다'); Store.logCall(s.id); toast(`${s.phone} 로 전화 연결`); });
     $('#btnOnMap').addEventListener('click', () => { history.back(); setTimeout(() => onMarkerClick(s), 100); });
     const mini = MapAdapter.createMap($('#miniMap'), { lat: s.lat, lng: s.lng, zoom: 15 });
     mini.raw.dragging.disable(); mini.raw.scrollWheelZoom.disable(); mini.setMarkers([s], () => {}); mini.highlight(s.id);
   }
   function closeDetail() { el.detail.classList.add('hidden'); el.detail.innerHTML = ''; }
-  function call(id) { const s = Store.get(id); Store.logCall(id); toast(`${s.phone} 로 전화 연결`); location.href = `tel:${s.phone.replace(/-/g, '')}`; }
+  function call(id) { const s = Store.get(id); if (!s.phone) return toast('등록된 전화번호가 없습니다'); Store.logCall(id); toast(`${s.phone} 로 전화 연결`); location.href = `tel:${s.phone.replace(/-/g, '')}`; }
   window.addEventListener('hashchange', route);
   function route() { const m = location.hash.match(/^#shop\/(.+)$/); if (m) renderDetail(m[1]); else closeDetail(); }
 

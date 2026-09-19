@@ -1,6 +1,6 @@
 // 서비스워커: 앱 껍데기(HTML/CSS/JS)는 캐시, 지도 타일/사진은 네트워크 우선.
-const CACHE = 'shimcall-v5';
-const SHELL = ['./app.html', './css/app.css?v=5', './js/app.js?v=5', './js/store.js?v=5', './js/map-adapter.js?v=5', './js/data.js?v=5', './manifest.json', './icons/icon-192.png'];
+const CACHE = 'shimcall-v6';
+const SHELL = ['./app.html', './css/app.css?v=6', './js/app.js?v=6', './js/store.js?v=6', './js/map-adapter.js?v=6', './js/data.js?v=6', './manifest.json', './icons/icon-192.png'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', (e) => {

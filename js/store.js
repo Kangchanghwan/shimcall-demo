@@ -69,23 +69,42 @@
     reset() { localStorage.removeItem(KEY); },
   };
 
-  // 영업시간 헬퍼 (공용)
+  // 영업시간 헬퍼. 네이버 데이터는 요일별 배열이고, 쉬는 날은 open/close 가 없다.
+  const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
+  const dayName = (d) => (d || '').replace(/\(.*\)/, '').trim();
+  Store.todayHours = function (hours, now = new Date()) {
+    if (!hours || !hours.week || !hours.week.length) return null;
+    const t = DAYS[now.getDay()];
+    return hours.week.find(w => dayName(w.day) === t) || null;
+  };
   Store.isOpenNow = function (hours, now = new Date()) {
-    if (!hours) return null;
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    if (hours.closedDay && days[now.getDay()] === hours.closedDay) return false;
-    const toMin = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+    const t = Store.todayHours(hours, now);
+    if (!t) return null;                 // 정보 없음
+    if (!t.open || !t.close) return false; // 휴무
+    const toMin = (v) => { const [h, m] = v.split(':').map(Number); return h * 60 + m; };
     const cur = now.getHours() * 60 + now.getMinutes();
-    const o = toMin(hours.open), c = toMin(hours.close);
-    if (c >= 24 * 60 && o === 0) return true;          // 24시간
-    if (c > o) return cur >= o && cur < c;              // 같은 날 마감
-    return cur >= o || cur < c;                         // 자정 넘김 (12:00~02:00)
+    const o = toMin(t.open), c = toMin(t.close);
+    const inRange = c > o ? (cur >= o && cur < c) : (cur >= o || cur < c);
+    if (!inRange) return false;
+    for (const b of (t.brk || [])) { if (cur >= toMin(b.start) && cur < toMin(b.end)) return false; }
+    return true;
   };
-  Store.hoursLabel = function (h) {
-    if (!h) return '-';
-    const base = (h.open === '00:00' && h.close === '24:00') ? '24시간' : `${h.open} ~ ${h.close}`;
-    return h.closedDay ? `${base} (${h.closedDay}요일 휴무)` : `${base} (연중무휴)`;
+  Store.openLabel = function (hours) {
+    const v = Store.isOpenNow(hours);
+    return v === null ? { text: '영업시간 정보 없음', cls: 'unknown' } : v ? { text: '영업중', cls: 'open' } : { text: '영업종료', cls: 'closed' };
   };
+  Store.todayLabel = function (hours) {
+    const t = Store.todayHours(hours);
+    if (!t) return '영업시간 정보 없음';
+    if (!t.open || !t.close) return '오늘 휴무';
+    const brk = (t.brk || []).map(b => `${b.start}~${b.end} 휴게`).join(', ');
+    return `오늘 ${t.open} ~ ${t.close}${brk ? ' · ' + brk : ''}`;
+  };
+  Store.weekLines = function (hours) {
+    if (!hours || !hours.week) return [];
+    return hours.week.map(w => ({ day: w.day, text: (!w.open || !w.close) ? '휴무' : `${w.open} ~ ${w.close}` + ((w.brk || []).length ? ` (휴게 ${w.brk.map(b => b.start + '~' + b.end).join(', ')})` : '') }));
+  };
+  Store.hoursLabel = Store.todayLabel;
   Store.distanceKm = function (a, b) {
     const R = 6371, dLat = (b.lat - a.lat) * Math.PI / 180, dLng = (b.lng - a.lng) * Math.PI / 180;
     const x = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
