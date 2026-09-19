@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>쉼콜 - 내 주변 마사지샵 찾고 바로 전화</title>
+<meta name="description" content="지도에서 가까운 마사지샵을 찾고 바로 전화하세요.">
+<meta name="theme-color" content="#1f6f5f">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="쉼콜">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <!-- 홈: 지도 + 바텀시트 리스트 -->
+  <section id="home" class="screen">
+    <div id="map"></div>
+
+    <header class="topbar">
+      <button class="search-box" id="btnSearch" aria-label="검색">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span id="searchLabel">상호명으로 검색</span>
+      </button>
+      <div class="chips" id="chips">
+        <button class="chip primary" id="btnRegion">
+          <svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span id="regionLabel">전체 지역</span>
+        </button>
+        <button class="chip" id="btnOpen">영업중</button>
+        <button class="chip" id="btnNear">가까운순</button>
+      </div>
+    </header>
+
+    <button class="fab-locate" id="btnLocate" aria-label="현재 위치">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>
+    </button>
+    <button class="btn-research hidden" id="btnResearch">이 지역에서 다시 검색</button>
+
+    <div class="sheet" id="sheet">
+      <div class="sheet-handle" id="sheetHandle"><span></span></div>
+      <div class="sheet-head">
+        <strong id="listCount">0곳</strong>
+        <span class="muted" id="listHint">지도 영역 안의 샵</span>
+        <button class="link" id="btnToggleView">목록만 보기</button>
+      </div>
+      <div class="sheet-body" id="list"></div>
+    </div>
+  </section>
+
+  <!-- 상세 -->
+  <section id="detail" class="screen sub hidden"></section>
+
+  <!-- 지역 필터 시트 -->
+  <div class="modal hidden" id="regionModal">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-sheet">
+      <div class="modal-head"><strong>지역 선택</strong><button class="link" id="btnRegionClear">초기화</button></div>
+      <div class="tabs" id="cityTabs"></div>
+      <div class="dong-grid" id="dongGrid"></div>
+      <button class="btn-primary" id="btnRegionApply">적용</button>
+    </div>
+  </div>
+
+  <!-- 검색 -->
+  <div class="modal hidden" id="searchModal">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-sheet top">
+      <div class="search-input"><input id="searchInput" placeholder="상호명 검색" autocomplete="off"><button class="link" data-close>닫기</button></div>
+      <div id="searchResults" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <!-- PWA 설치 안내 -->
+  <div class="install-bar hidden" id="installBar">
+    <img src="icons/icon-192.png" alt="">
+    <div><b>홈 화면에 추가</b><br><small id="installHint">앱처럼 바로 열 수 있어요</small></div>
+    <button class="btn-mini" id="btnInstall">추가</button>
+    <button class="link" id="btnInstallClose">✕</button>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/map-adapter.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

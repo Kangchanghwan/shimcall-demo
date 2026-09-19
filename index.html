@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쉼콜 데모 - 지도 기반 마사지샵 안내 웹 (제안용 시연)</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --primary: #1f6f5f; --dark: #16554a; --text: #1c1c1e; --muted: #6b6b70; --line: #e6e7eb; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: var(--text); background: #f7f8fa; }
+  a { color: var(--primary); }
+  header { background: #fff; border-bottom: 1px solid var(--line); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  header .wrap { display: flex; align-items: center; height: 60px; gap: 14px; }
+  .logo { font-weight: 800; font-size: 20px; color: var(--dark); }
+  .tag { font-size: 12px; background: #e6f4ef; color: var(--dark); padding: 4px 10px; border-radius: 999px; font-weight: 600; }
+  header nav { margin-left: auto; display: flex; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: #fff; text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; }
+  .btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .hero { display: grid; grid-template-columns: 400px 1fr; gap: 40px; align-items: start; padding: 28px 0 40px; }
+  .phone { width: 375px; height: 740px; margin: 0 auto; background: #111; border-radius: 52px; padding: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.28), inset 0 0 0 2px #333; position: relative; }
+  .phone::before { content: ""; position: absolute; top: 24px; left: 50%; transform: translateX(-50%); width: 110px; height: 30px; background: #111; border-radius: 20px; z-index: 2; }
+  .phone iframe { width: 100%; height: 100%; border: 0; border-radius: 40px; background: #fff; }
+  .device-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 14px; }
+  .device-tabs button { height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .device-tabs button.on { background: var(--text); color: #fff; border-color: var(--text); }
+  h1 { font-size: 30px; line-height: 1.35; margin: 0 0 14px; }
+  h1 small { display: block; font-size: 14px; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+  .lead { font-size: 15px; line-height: 1.7; color: #333; }
+  .steps { list-style: none; padding: 0; margin: 22px 0; display: grid; gap: 10px; }
+  .steps li { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 14px; display: flex; gap: 12px; align-items: flex-start; }
+  .steps b { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-size: 12px; }
+  .qr { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-top: 18px; }
+  .qr img { width: 96px; height: 96px; border-radius: 8px; }
+  .qr small { color: var(--muted); display: block; margin-top: 4px; line-height: 1.5; }
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 20px; margin: 0 0 18px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; font-size: 14px; }
+  th, td { padding: 11px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.5; }
+  th { background: #fafafa; color: var(--muted); font-size: 12px; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .ok { color: var(--primary); font-weight: 700; }
+  .admin-frame { width: 100%; height: 640px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; font-size: 14px; line-height: 1.6; }
+  .card h3 { margin: 0 0 8px; font-size: 15px; }
+  footer { padding: 30px 0 50px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .phone { display: none; } .mobile-cta { display: block !important; } .grid3 { grid-template-columns: 1fr; } header nav { display: none; } }
+  .mobile-cta { display: none; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="logo">쉼콜</span><span class="tag">제안용 데모 · 가칭</span>
+  <nav><a class="btn" href="admin.html" target="_blank">관리자 웹</a><a class="btn primary" href="app.html" target="_blank">사용자 웹 새 창으로</a></nav>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="device-tabs"><button class="on" data-src="app.html?sim=1">사용자 웹</button><button data-src="app.html?sim=1#shop/s010">샵 상세</button><button data-src="admin.html">관리자</button></div>
+      <div class="phone"><iframe id="frame" src="app.html?sim=1" title="쉼콜 데모"></iframe></div>
+    </div>
+    <div>
+      <div class="mobile-cta"><a class="btn primary" href="app.html">사용자 웹 열기 (모바일 화면)</a> <a class="btn" href="admin.html">관리자 웹</a></div>
+      <h1><small>고양·파주 마사지샵 안내 웹 · 제안 시연 페이지</small>지도에서 가까운 샵을 찾고,<br>바로 전화까지 이어지는 흐름을<br>미리 만들어 봤습니다.</h1>
+      <p class="lead">왼쪽 화면은 그림이 아니라 <b>실제로 동작하는 웹</b>입니다. 지도를 움직이고, 동을 고르고, 샵을 눌러 상세까지 들어가 보세요. 스마트폰에서 열면 실제 서비스와 같은 화면으로 보이고, 홈 화면에 추가(PWA)도 됩니다.</p>
+      <ul class="steps">
+        <li><b>1</b><span><strong>지도 + 리스트가 함께 동작</strong> — 지도를 움직이면 "이 지역에서 다시 검색"으로 아래 목록이 갱신되고, 목록을 누르면 지도가 해당 샵으로 이동합니다. 아래 시트는 끌어올려 3단계(살짝/절반/전체)로 열립니다.</span></li>
+        <li><b>2</b><span><strong>동 단위 필터</strong> — 고양시(덕양·일산동·일산서구) / 파주시 안에서 동을 여러 개 골라 거릅니다.</span></li>
+        <li><b>3</b><span><strong>샵 상세 → 전화하기</strong> — 사진, 주소(복사·길찾기), 영업시간(영업중 표시), 소개, 하단 고정 <em>전화하기</em> 버튼.</span></li>
+        <li><b>4</b><span><strong>관리자 웹</strong> — 샵 등록·수정·숨김, 사진 업로드, 지도에서 핀 찍기, 동 노출 ON/OFF, 그리고 <em>샵별 전화 클릭 통계</em>. 관리자에서 고친 내용이 사용자 웹에 바로 반영됩니다.</span></li>
+      </ul>
+      <div class="qr">
+        <img id="qr" alt="QR">
+        <div><b>스마트폰으로 열어보기</b><small>카메라로 QR을 찍으면 사용자 웹이 열립니다.<br>Safari/Chrome 메뉴에서 "홈 화면에 추가"를 누르면 앱 아이콘이 생깁니다.</small></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>공고의 필수 과업과 이 데모의 대응</h2>
+    <table>
+      <thead><tr><th>필수 과업</th><th>데모에서 확인하는 방법</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>지도와 리스트</td><td>홈 화면. 마커가 많은 곳은 숫자로 묶이고(클러스터), 확대하면 펼쳐집니다. 목록은 지도 영역 안의 샵을 가까운 순으로 보여줍니다.</td><td class="ok">동작</td></tr>
+        <tr><td>동 단위 필터</td><td>상단 "전체 지역" 버튼 → 시 탭 → 동 다중 선택 → 적용. 지도가 선택한 동 범위로 자동 이동합니다.</td><td class="ok">동작</td></tr>
+        <tr><td>샵 상세</td><td>상호, 사진(좌우 넘김), 주소, 전화번호, 영업시간, 소개, 위치 미니지도.</td><td class="ok">동작</td></tr>
+        <tr><td>전화하기</td><td>상세 하단 고정 버튼과 목록의 전화 아이콘. 스마트폰에서는 바로 통화 앱이 열립니다. 클릭 수는 관리자 대시보드에 집계됩니다.</td><td class="ok">동작</td></tr>
+        <tr><td>비회원 열람</td><td>로그인 없이 모든 화면 열람.</td><td class="ok">동작</td></tr>
+        <tr><td>PWA</td><td>manifest + 서비스워커 구성. Android는 설치 안내 배너, iOS는 "공유 → 홈 화면에 추가" 안내.</td><td class="ok">동작</td></tr>
+        <tr><td>관리자 웹</td><td>샵 등록·수정·숨김 / 사진 등록 / 지역(동) 설정 / 전화 클릭 통계.</td><td class="ok">동작</td></tr>
+        <tr><td>제휴·비제휴 구분 없음</td><td>모든 샵 동일 노출. 데이터 구조에는 2차용 필드 자리만 비워 둠.</td><td class="ok">반영</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>관리자 웹 미리보기</h2>
+    <p class="lead" style="margin-top:0">PC 화면 기준입니다. 왼쪽 메뉴에서 샵 관리 → 노출 스위치를 꺼 보시면, 위 스마트폰 화면의 목록에서 해당 샵이 사라집니다.</p>
+    <iframe class="admin-frame" src="admin.html" title="관리자 데모"></iframe>
+  </section>
+
+  <section>
+    <h2>데모와 실제 서비스의 차이 (정직하게)</h2>
+    <div class="grid3">
+      <div class="card"><h3>지도 엔진</h3>데모는 키 발급 없이 바로 뜨는 오픈 지도(OpenStreetMap)를 씁니다. 실제 서비스는 <b>카카오맵</b>으로 교체합니다. 앱 코드는 지도 어댑터 한 파일만 바라보도록 만들어 두어, 교체 시 다른 화면은 손대지 않습니다.</div>
+      <div class="card"><h3>데이터 저장</h3>데모는 샘플 41곳(상호·주소·전화는 가상)을 브라우저 안에 저장합니다. 실제 서비스는 서버 DB(PostgreSQL)와 API를 두고, 사진은 오브젝트 스토리지에 올립니다. 화면 코드는 동일하게 유지됩니다.</div>
+      <div class="card"><h3>관리자 로그인</h3>데모는 로그인 없이 열립니다. 실제 서비스는 관리자 계정 로그인과 접근 제한이 들어갑니다. 2차 항목(지역 ON/OFF, 제휴 필드, 예약 요청)은 같은 구조에 열만 추가하는 방식으로 붙입니다.</div>
+    </div>
+  </section>
+
+  <footer>본 페이지는 프로젝트 제안을 위한 시연용이며, 표시된 매장 정보는 모두 가상의 샘플 데이터입니다. 브랜드명 "쉼콜"은 가칭입니다.</footer>
+</div>
+
+<script>
+  const frame = document.getElementById('frame');
+  document.querySelectorAll('.device-tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.device-tabs button').forEach(x => x.classList.remove('on')); b.classList.add('on'); frame.src = b.dataset.src;
+  }));
+  const appUrl = new URL('app.html', location.href).href;
+  document.getElementById('qr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=192x192&margin=6&data=' + encodeURIComponent(appUrl);
+</script>
+</body>
+</html>

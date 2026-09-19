@@ -1,0 +1,16 @@
+{
+  "name": "쉼콜 - 내 주변 마사지샵 찾고 바로 전화",
+  "short_name": "쉼콜",
+  "description": "지도에서 가까운 마사지샵을 찾고 바로 전화하세요.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1f6f5f",
+  "lang": "ko",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

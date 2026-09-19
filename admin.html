@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쉼콜 관리자 (데모)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<aside class="side">
+  <div class="brand">쉼콜 <small>관리자</small></div>
+  <nav>
+    <a href="#dashboard" data-nav="dashboard">대시보드</a>
+    <a href="#shops" data-nav="shops">샵 관리</a>
+    <a href="#edit" data-nav="edit">샵 등록</a>
+    <a href="#regions" data-nav="regions">지역 설정</a>
+  </nav>
+  <div class="side-foot">
+    <a href="app.html" target="_blank">사용자 웹 열기 ↗</a>
+    <button class="link" id="btnReset">데모 데이터 초기화</button>
+  </div>
+</aside>
+
+<main>
+  <!-- 대시보드 -->
+  <section id="dashboard" class="page">
+    <h1>대시보드</h1>
+    <div class="cards">
+      <div class="stat"><small>등록 샵</small><b id="stTotal">0</b></div>
+      <div class="stat"><small>노출 중</small><b id="stVisible">0</b></div>
+      <div class="stat"><small>숨김</small><b id="stHidden">0</b></div>
+      <div class="stat"><small>전화 클릭 (누적)</small><b id="stCalls">0</b></div>
+    </div>
+    <h2>샵별 전화 클릭 <small class="muted">사용자 웹에서 '전화하기'를 누른 횟수. 샵 영업 시 "이번 달 전화 n건" 근거 자료로 활용</small></h2>
+    <table class="tbl" id="callTable"><thead><tr><th>샵</th><th>지역</th><th>전화 클릭</th><th>최근</th></tr></thead><tbody></tbody></table>
+    <h2>동별 등록 현황</h2>
+    <div id="dongStats" class="dong-stats"></div>
+  </section>
+
+  <!-- 샵 관리 -->
+  <section id="shops" class="page hidden">
+    <div class="page-head"><h1>샵 관리</h1><a class="btn" href="#edit">+ 샵 등록</a></div>
+    <div class="toolbar">
+      <input id="shopSearch" placeholder="상호·동으로 검색">
+      <select id="shopFilter"><option value="">전체</option><option value="visible">노출 중</option><option value="hidden">숨김</option></select>
+    </div>
+    <table class="tbl" id="shopTable"><thead><tr><th>사진</th><th>상호</th><th>지역</th><th>전화</th><th>영업시간</th><th>노출</th><th></th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <!-- 등록/수정 -->
+  <section id="edit" class="page hidden">
+    <div class="page-head"><h1 id="editTitle">샵 등록</h1><a class="link" href="#shops">← 목록</a></div>
+    <form id="form" class="form" autocomplete="off">
+      <input type="hidden" name="id">
+      <div class="grid2">
+        <label>상호 <input name="name" required placeholder="예) 온테라피"></label>
+        <label>업종 <select name="type"><option>스웨디시</option><option>타이마사지</option><option>아로마</option><option>스포츠마사지</option><option>경락</option><option>발마사지</option><option>로미로미</option><option>1인샵</option></select></label>
+        <label>시 <select name="city" id="selCity"></select></label>
+        <label>동 <select name="dong" id="selDong"></select></label>
+        <label class="span2">주소 <input name="address" required placeholder="도로명 주소"></label>
+        <label>전화번호 <input name="phone" required placeholder="031-000-0000"></label>
+        <label>노출 <select name="visible"><option value="true">노출</option><option value="false">숨김</option></select></label>
+        <label>오픈 <input name="open" type="time" value="10:00"></label>
+        <label>마감 <input name="close" type="time" value="22:00"></label>
+        <label>휴무일 <select name="closedDay"><option value="">연중무휴</option><option>일</option><option>월</option><option>화</option><option>수</option><option>목</option><option>금</option><option>토</option></select></label>
+        <label class="span2">소개 <textarea name="intro" rows="3"></textarea></label>
+      </div>
+      <div class="field">
+        <div class="field-label">위치 <small class="muted">지도를 클릭해 핀을 찍거나 드래그하세요 (실서비스: 주소 입력 시 자동 좌표 변환)</small></div>
+        <div id="pickMap" class="pick-map"></div>
+        <div class="muted" id="latlng">좌표: -</div>
+        <input type="hidden" name="lat"><input type="hidden" name="lng">
+      </div>
+      <div class="field">
+        <div class="field-label">사진 <small class="muted">최대 5장, 첫 번째가 대표 사진</small></div>
+        <input type="file" id="photoInput" accept="image/*" multiple>
+        <div id="photoPreview" class="photos"></div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn danger" id="btnDelete">삭제</button>
+        <button type="submit" class="btn primary">저장</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- 지역 설정 -->
+  <section id="regions" class="page hidden">
+    <h1>지역 설정</h1>
+    <p class="muted">1차는 고양·파주만 노출합니다. 동을 끄면 사용자 웹에서 해당 동 샵과 필터가 함께 사라집니다. (시 단위 ON/OFF·타 지역 추가는 2차 항목이며 같은 구조로 확장됩니다.)</p>
+    <div id="regionList"></div>
+  </section>
+</main>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/map-adapter.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
