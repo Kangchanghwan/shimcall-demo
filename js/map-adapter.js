@@ -45,7 +45,7 @@
         const b = L.latLngBounds(shops.map(s => [s.lat, s.lng]));
         map.fitBounds(b, { paddingTopLeft: [30, 90], paddingBottomRight: [30, pad || 220], maxZoom: 15 });
       },
-      panTo(lat, lng, zoom) { map.setView([lat, lng], zoom || Math.max(map.getZoom(), 15), { animate: true }); },
+      panTo(lat, lng, zoom) { map.setView([lat, lng], zoom || Math.max(map.getZoom(), 13), { animate: true }); },
       inView(shop) { return map.getBounds().contains([shop.lat, shop.lng]); },
       center() { const c = map.getCenter(); return { lat: c.lat, lng: c.lng }; },
       onMove(cb) { map.on('movestart', cb); },

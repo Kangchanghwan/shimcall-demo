@@ -60,7 +60,11 @@
     state.activeId = s.id; map.highlight(s.id);
     programmatic = true; map.panTo(s.lat, s.lng); setTimeout(() => programmatic = false, 600);
     setSheet('half');
-    setTimeout(() => { renderList(filtered()); $(`.card[data-id="${s.id}"]`)?.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 350);
+    setTimeout(() => {
+      renderList(filtered());
+      const card = $(`.card[data-id="${s.id}"]`);           // scrollIntoView는 고정 레이아웃 전체를 밀어 올리므로 목록만 스크롤
+      if (card) el.list.scrollTop = card.offsetTop - el.list.offsetTop;
+    }, 350);
   }
   el.btnResearch.addEventListener('click', () => { el.btnResearch.classList.add('hidden'); renderList(filtered()); });
 
