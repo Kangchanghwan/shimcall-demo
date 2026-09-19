@@ -18,11 +18,16 @@
     let activeId = null;
     let userMarker = null;
 
+    // 핀 모양: 물방울 핀 + 아래 상호 라벨. 선택되면 주황색으로 커진다.
+    const PIN = (fill, w, h) => `<svg viewBox="0 0 28 36" width="${w}" height="${h}" aria-hidden="true">
+      <path d="M14 1C7 1 1.5 6.5 1.5 13.5 1.5 22.5 14 35 14 35s12.5-12.5 12.5-21.5C26.5 6.5 21 1 14 1z" fill="${fill}" stroke="#fff" stroke-width="2"/>
+      <circle cx="14" cy="13.5" r="4.5" fill="#fff"/></svg>`;
     const icon = (shop, active) => L.divIcon({
       className: '',
-      html: `<div class="pin ${active ? 'active' : ''}"><span>${shop.name.slice(0, 6)}</span></div>`,
-      iconSize: [0, 0], iconAnchor: [0, 30],
+      html: `<div class="pin ${active ? 'active' : ''}">${PIN(active ? '#f4a261' : '#1f6f5f', active ? 34 : 28, active ? 44 : 36)}<span class="pin-label">${shop.name}</span></div>`,
+      iconSize: [0, 0], iconAnchor: [0, 0],
     });
+    const pickIcon = L.divIcon({ className: '', html: `<div class="pin pick">${PIN('#f4a261', 34, 44)}</div>`, iconSize: [0, 0], iconAnchor: [0, 0] });
 
     return {
       raw: map,
@@ -57,9 +62,9 @@
       invalidate() { setTimeout(() => map.invalidateSize(), 50); },
       // 관리자: 클릭으로 핀 찍기
       pickable(onPick, initial) {
-        let pm = initial ? L.marker([initial.lat, initial.lng], { draggable: true }).addTo(map) : null;
+        let pm = initial ? L.marker([initial.lat, initial.lng], { draggable: true, icon: pickIcon }).addTo(map) : null;
         const put = (lat, lng) => {
-          if (!pm) pm = L.marker([lat, lng], { draggable: true }).addTo(map).on('dragend', (e) => { const p = e.target.getLatLng(); onPick(p.lat, p.lng); });
+          if (!pm) pm = L.marker([lat, lng], { draggable: true, icon: pickIcon }).addTo(map).on('dragend', (e) => { const p = e.target.getLatLng(); onPick(p.lat, p.lng); });
           else pm.setLatLng([lat, lng]);
           onPick(lat, lng);
         };

@@ -69,3 +69,7 @@ h2 { margin: 28px 0 10px; font-size: 16px; }
 
 .toast { position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); background: rgba(28,28,30,.92); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 13px; z-index: 99; }
 @media (max-width: 800px) { body { flex-direction: column; } .side { width: auto; height: auto; position: static; } nav { display: flex; gap: 4px; } main { padding: 18px; } .cards { grid-template-columns: 1fr 1fr; } .grid2 { grid-template-columns: 1fr; } .region-group .dongs { grid-template-columns: 1fr 1fr; } }
+
+/* 위치 지정 핀 */
+.pin { position: relative; width: 0; height: 0; }
+.pin svg { position: absolute; left: -17px; bottom: 0; filter: drop-shadow(0 2px 3px rgba(0,0,0,.28)); }
