@@ -187,7 +187,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/포레케어스튜디오21/640/420",
       "https://picsum.photos/seed/포레케어스튜디오22/640/420",
@@ -212,7 +212,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": null
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/리프아로마샵31/640/420",
       "https://picsum.photos/seed/리프아로마샵32/640/420",
@@ -237,7 +237,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": "월"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "커플룸 2개, 1인룸 3개. 건물 뒤에 주차 됩니다.",
     "photos": [
       "https://picsum.photos/seed/온테라피41/640/420",
       "https://picsum.photos/seed/온테라피42/640/420",
@@ -262,7 +262,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": null
     },
-    "intro": "10년 경력 관리사가 직접 케어합니다. 사전 전화 예약 시 대기 없이 바로 이용 가능합니다.",
+    "intro": "경력 12년 관리사가 직접 봅니다. 목이랑 어깨 뭉친 분들이 많이 오세요.",
     "photos": [
       "https://picsum.photos/seed/휴스웨디시51/640/420",
       "https://picsum.photos/seed/휴스웨디시52/640/420",
@@ -287,7 +287,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": null
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "발마사지 전문이고 40분, 60분 코스 있어요. 일요일은 쉽니다.",
     "photos": [
       "https://picsum.photos/seed/해온마사지하우스61/640/420",
       "https://picsum.photos/seed/해온마사지하우스62/640/420",
@@ -312,7 +312,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "월"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/슬로우릴렉스룸71/640/420",
       "https://picsum.photos/seed/슬로우릴렉스룸72/640/420",
@@ -337,7 +337,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": "수"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/루아릴렉스81/640/420",
       "https://picsum.photos/seed/루아릴렉스82/640/420",
@@ -362,7 +362,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": null
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "처음 오시면 어디가 불편한지 먼저 여쭤보고 시작합니다. 당일 예약 가능.",
     "photos": [
       "https://picsum.photos/seed/온유힐링91/640/420",
       "https://picsum.photos/seed/온유힐링92/640/420",
@@ -387,7 +387,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/더릴렉스스튜디오101/640/420",
       "https://picsum.photos/seed/더릴렉스스튜디오102/640/420",
@@ -412,7 +412,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "은은한 아로마 오일과 따뜻한 스톤을 활용한 릴렉스 코스를 운영합니다. 여성 고객 비율이 높습니다.",
+    "intro": "태국 현지에서 자격 받은 관리사 3명이 있습니다. 스트레칭 위주.",
     "photos": [
       "https://picsum.photos/seed/루아릴렉스룸111/640/420",
       "https://picsum.photos/seed/루아릴렉스룸112/640/420",
@@ -437,7 +437,7 @@ window.SEED_SHOPS = [
       "close": "23:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/온테라피샵121/640/420",
       "https://picsum.photos/seed/온테라피샵122/640/420",
@@ -462,7 +462,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": null
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "처음 오시면 어디가 불편한지 먼저 여쭤보고 시작합니다. 당일 예약 가능.",
     "photos": [
       "https://picsum.photos/seed/슬로우타이131/640/420",
       "https://picsum.photos/seed/슬로우타이132/640/420",
@@ -487,7 +487,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": "월"
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "처음 오시면 어디가 불편한지 먼저 여쭤보고 시작합니다. 당일 예약 가능.",
     "photos": [
       "https://picsum.photos/seed/리프바디141/640/420",
       "https://picsum.photos/seed/리프바디142/640/420",
@@ -512,7 +512,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "일"
     },
-    "intro": "은은한 아로마 오일과 따뜻한 스톤을 활용한 릴렉스 코스를 운영합니다. 여성 고객 비율이 높습니다.",
+    "intro": "태국 현지에서 자격 받은 관리사 3명이 있습니다. 스트레칭 위주.",
     "photos": [
       "https://picsum.photos/seed/결케어룸151/640/420",
       "https://picsum.photos/seed/결케어룸152/640/420",
@@ -537,7 +537,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "일"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/휴릴렉스샵161/640/420",
       "https://picsum.photos/seed/휴릴렉스샵162/640/420",
@@ -562,7 +562,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": null
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/나린스파룸171/640/420",
       "https://picsum.photos/seed/나린스파룸172/640/420",
@@ -587,7 +587,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": "월"
     },
-    "intro": "10년 경력 관리사가 직접 케어합니다. 사전 전화 예약 시 대기 없이 바로 이용 가능합니다.",
+    "intro": "경력 12년 관리사가 직접 봅니다. 목이랑 어깨 뭉친 분들이 많이 오세요.",
     "photos": [
       "https://picsum.photos/seed/온유스웨디시룸181/640/420",
       "https://picsum.photos/seed/온유스웨디시룸182/640/420",
@@ -612,7 +612,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "수"
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "태국 현지에서 자격 받은 관리사 3명이 있습니다. 스트레칭 위주.",
     "photos": [
       "https://picsum.photos/seed/봄케어191/640/420",
       "https://picsum.photos/seed/봄케어192/640/420",
@@ -637,7 +637,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/포레힐링201/640/420",
       "https://picsum.photos/seed/포레힐링202/640/420",
@@ -662,7 +662,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "월"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/슬로우타이룸211/640/420",
       "https://picsum.photos/seed/슬로우타이룸212/640/420",
@@ -687,7 +687,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "일"
     },
-    "intro": "은은한 아로마 오일과 따뜻한 스톤을 활용한 릴렉스 코스를 운영합니다. 여성 고객 비율이 높습니다.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/해온릴렉스스튜디오221/640/420",
       "https://picsum.photos/seed/해온릴렉스스튜디오222/640/420",
@@ -712,7 +712,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "화"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/온유아로마하우스231/640/420",
       "https://picsum.photos/seed/온유아로마하우스232/640/420",
@@ -737,7 +737,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": null
     },
-    "intro": "은은한 아로마 오일과 따뜻한 스톤을 활용한 릴렉스 코스를 운영합니다. 여성 고객 비율이 높습니다.",
+    "intro": "태국 현지에서 자격 받은 관리사 3명이 있습니다. 스트레칭 위주.",
     "photos": [
       "https://picsum.photos/seed/더바디241/640/420",
       "https://picsum.photos/seed/더바디242/640/420",
@@ -762,7 +762,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "일"
     },
-    "intro": "조용한 프라이빗 룸에서 1:1 관리를 받으실 수 있습니다. 첫 방문 고객께는 코스 상담을 충분히 진행해 드립니다.",
+    "intro": "1인샵입니다. 예약제로 운영해서 전화 주시고 오시면 기다리는 시간 없어요.",
     "photos": [
       "https://picsum.photos/seed/에이릴렉스251/640/420",
       "https://picsum.photos/seed/에이릴렉스252/640/420",
@@ -787,7 +787,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "월"
     },
-    "intro": "조용한 프라이빗 룸에서 1:1 관리를 받으실 수 있습니다. 첫 방문 고객께는 코스 상담을 충분히 진행해 드립니다.",
+    "intro": "1인샵입니다. 예약제로 운영해서 전화 주시고 오시면 기다리는 시간 없어요.",
     "photos": [
       "https://picsum.photos/seed/휴테라피룸261/640/420",
       "https://picsum.photos/seed/휴테라피룸262/640/420",
@@ -812,7 +812,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "은은한 아로마 오일과 따뜻한 스톤을 활용한 릴렉스 코스를 운영합니다. 여성 고객 비율이 높습니다.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/라온힐링룸271/640/420",
       "https://picsum.photos/seed/라온힐링룸272/640/420",
@@ -837,7 +837,7 @@ window.SEED_SHOPS = [
       "close": "23:00",
       "closedDay": "화"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/봄스웨디시룸281/640/420",
       "https://picsum.photos/seed/봄스웨디시룸282/640/420",
@@ -862,7 +862,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": "수"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/나린마사지291/640/420",
       "https://picsum.photos/seed/나린마사지292/640/420",
@@ -887,7 +887,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/에이스파하우스301/640/420",
       "https://picsum.photos/seed/에이스파하우스302/640/420",
@@ -912,7 +912,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "수"
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "처음 오시면 어디가 불편한지 먼저 여쭤보고 시작합니다. 당일 예약 가능.",
     "photos": [
       "https://picsum.photos/seed/에이힐링스튜디오311/640/420",
       "https://picsum.photos/seed/에이힐링스튜디오312/640/420",
@@ -937,7 +937,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "처음 오시면 어디가 불편한지 먼저 여쭤보고 시작합니다. 당일 예약 가능.",
     "photos": [
       "https://picsum.photos/seed/포레마사지321/640/420",
       "https://picsum.photos/seed/포레마사지322/640/420",
@@ -962,7 +962,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": null
     },
-    "intro": "조용한 프라이빗 룸에서 1:1 관리를 받으실 수 있습니다. 첫 방문 고객께는 코스 상담을 충분히 진행해 드립니다.",
+    "intro": "1인샵입니다. 예약제로 운영해서 전화 주시고 오시면 기다리는 시간 없어요.",
     "photos": [
       "https://picsum.photos/seed/더테라피스튜디오331/640/420",
       "https://picsum.photos/seed/더테라피스튜디오332/640/420",
@@ -987,7 +987,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "화"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "발마사지 전문이고 40분, 60분 코스 있어요. 일요일은 쉽니다.",
     "photos": [
       "https://picsum.photos/seed/포레케어룸341/640/420",
       "https://picsum.photos/seed/포레케어룸342/640/420",
@@ -1012,7 +1012,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "화"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/리프바디스튜디오351/640/420",
       "https://picsum.photos/seed/리프바디스튜디오352/640/420",
@@ -1037,7 +1037,7 @@ window.SEED_SHOPS = [
       "close": "21:00",
       "closedDay": "수"
     },
-    "intro": "정통 태국식 스트레칭 마사지 전문. 관리사 전원 자격 보유.",
+    "intro": "역에서 걸어서 3분. 밤 12시까지 하니까 퇴근하고 오셔도 됩니다.",
     "photos": [
       "https://picsum.photos/seed/슬로우힐링룸361/640/420",
       "https://picsum.photos/seed/슬로우힐링룸362/640/420",
@@ -1062,7 +1062,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "운동하는 분들 위주로 딥티슈 위주로 합니다. 세게 받는 거 좋아하시면 잘 맞아요.",
     "photos": [
       "https://picsum.photos/seed/리프릴렉스스튜디오371/640/420",
       "https://picsum.photos/seed/리프릴렉스스튜디오372/640/420",
@@ -1087,7 +1087,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "화"
     },
-    "intro": "커플룸과 1인룸을 모두 갖추고 있습니다. 주차 가능, 샤워실 완비.",
+    "intro": "커플룸 2개, 1인룸 3개. 건물 뒤에 주차 됩니다.",
     "photos": [
       "https://picsum.photos/seed/라온힐링스튜디오381/640/420",
       "https://picsum.photos/seed/라온힐링스튜디오382/640/420",
@@ -1112,7 +1112,7 @@ window.SEED_SHOPS = [
       "close": "22:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/라온케어룸391/640/420",
       "https://picsum.photos/seed/라온케어룸392/640/420",
@@ -1137,7 +1137,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": "수"
     },
-    "intro": "역에서 도보 3분. 늦은 시간까지 운영하여 퇴근 후 방문하기 좋습니다.",
+    "intro": "발마사지 전문이고 40분, 60분 코스 있어요. 일요일은 쉽니다.",
     "photos": [
       "https://picsum.photos/seed/포레스파하우스401/640/420",
       "https://picsum.photos/seed/포레스파하우스402/640/420",
@@ -1162,7 +1162,7 @@ window.SEED_SHOPS = [
       "close": "02:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "아로마 오일 쓰고 조용하게 해드립니다. 여성 손님이 많은 편이에요.",
     "photos": [
       "https://picsum.photos/seed/온유테라피룸411/640/420",
       "https://picsum.photos/seed/온유테라피룸412/640/420",
@@ -1187,7 +1187,7 @@ window.SEED_SHOPS = [
       "close": "24:00",
       "closedDay": null
     },
-    "intro": "근육 이완과 피로 회복에 집중한 딥티슈 코스가 대표 메뉴입니다. 운동 후 방문 추천.",
+    "intro": "태국 현지에서 자격 받은 관리사 3명이 있습니다. 스트레칭 위주.",
     "photos": [
       "https://picsum.photos/seed/봄바디스튜디오421/640/420",
       "https://picsum.photos/seed/봄바디스튜디오422/640/420",

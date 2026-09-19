@@ -52,66 +52,60 @@
 </head>
 <body>
 <header><div class="wrap">
-  <span class="logo">쉼콜</span><span class="tag">제안용 데모 · 가칭</span>
-  <nav><a class="btn" href="admin.html" target="_blank">관리자 웹</a><a class="btn primary" href="app.html" target="_blank">사용자 웹 새 창으로</a></nav>
+  <span class="logo">쉼콜</span><span class="tag">제안용 데모, 이름은 가칭</span>
+  <nav><a class="btn" href="admin.html" target="_blank">관리자 화면</a><a class="btn primary" href="app.html" target="_blank">사용자 화면 새 창으로</a></nav>
 </div></header>
 
 <div class="wrap">
   <div class="hero">
     <div>
-      <div class="device-tabs"><button class="on" data-src="app.html?sim=1&v=3">사용자 웹</button><button data-src="app.html?sim=1&v=3#shop/s010">샵 상세</button><button data-src="admin.html">관리자</button></div>
+      <div class="device-tabs"><button class="on" data-src="app.html?sim=1&v=3">사용자 화면</button><button data-src="app.html?sim=1&v=3#shop/s010">샵 상세</button><button data-src="admin.html">관리자</button></div>
       <div class="phone"><iframe id="frame" src="app.html?sim=1&v=3" title="쉼콜 데모"></iframe></div>
     </div>
     <div>
-      <div class="mobile-cta"><a class="btn primary" href="app.html">사용자 웹 열기 (모바일 화면)</a> <a class="btn" href="admin.html">관리자 웹</a></div>
-      <h1><small>고양·파주 마사지샵 안내 웹 · 제안 시연 페이지</small>지도에서 가까운 샵을 찾고,<br>바로 전화까지 이어지는 흐름을<br>미리 만들어 봤습니다.</h1>
-      <p class="lead">왼쪽 화면은 그림이 아니라 <b>실제로 동작하는 웹</b>입니다. 지도를 움직이고, 동을 고르고, 샵을 눌러 상세까지 들어가 보세요. 스마트폰에서 열면 실제 서비스와 같은 화면으로 보이고, 홈 화면에 추가(PWA)도 됩니다.</p>
-      <ul class="steps">
-        <li><b>1</b><span><strong>지도 + 리스트가 함께 동작</strong> — 지도를 움직이면 "이 지역에서 다시 검색"으로 아래 목록이 갱신되고, 목록을 누르면 지도가 해당 샵으로 이동합니다. 아래 시트는 끌어올려 3단계(살짝/절반/전체)로 열립니다.</span></li>
-        <li><b>2</b><span><strong>동 단위 필터</strong> — 고양시(덕양·일산동·일산서구) / 파주시 안에서 동을 여러 개 골라 거릅니다.</span></li>
-        <li><b>3</b><span><strong>샵 상세 → 전화하기</strong> — 사진, 주소(복사·길찾기), 영업시간(영업중 표시), 소개, 하단 고정 <em>전화하기</em> 버튼.</span></li>
-        <li><b>4</b><span><strong>관리자 웹</strong> — 샵 등록·수정·숨김, 사진 업로드, 지도에서 핀 찍기, 동 노출 ON/OFF, 그리고 <em>샵별 전화 클릭 통계</em>. 관리자에서 고친 내용이 사용자 웹에 바로 반영됩니다.</span></li>
-      </ul>
+      <div class="mobile-cta"><a class="btn primary" href="app.html">사용자 화면 열기</a> <a class="btn" href="admin.html">관리자 화면</a></div>
+      <h1><small>고양·파주 마사지샵 안내 웹 제안</small>공고를 보고 화면을 먼저 만들어 봤습니다.</h1>
+      <p class="lead">왼쪽 화면은 직접 만져볼 수 있습니다. 지도를 끌어보고, 동을 골라보고, 샵을 눌러 상세까지 들어가 보세요. 스마트폰으로 열면 실제 서비스와 같은 크기로 보이고, 홈 화면에 추가하면 앱처럼 아이콘이 생깁니다.</p>
+      <p class="lead">공고에 적어주신 필수 과업을 기준으로 만들었습니다. 지도와 목록은 같이 움직입니다. 지도를 옮기면 "이 지역에서 다시 검색"이 뜨고, 목록에서 샵을 누르면 지도가 그 샵으로 갑니다. 아래 목록은 손으로 끌어올려 절반, 전체 순으로 펼칠 수 있습니다. 동 필터는 고양시 세 개 구와 파주시로 나눠서 동을 여러 개 고를 수 있게 했습니다. 상세 화면에는 사진, 주소, 영업시간, 소개가 있고 맨 아래 전화 버튼이 고정되어 있습니다.</p>
+      <p class="lead">관리자 화면에서는 샵을 등록하고 고치고 숨길 수 있고, 사진을 올리고, 지도를 눌러 위치를 찍습니다. 동별로 노출을 끌 수도 있습니다. 여기서 고친 내용은 사용자 화면에 바로 반영됩니다. 대시보드에는 샵마다 전화 버튼이 눌린 횟수를 세어 두었는데, 나중에 샵을 모집하실 때 "지난달에 전화가 몇 건 갔다"고 보여드릴 수 있어서 넣었습니다.</p>
       <div class="qr">
         <img id="qr" alt="QR">
-        <div><b>스마트폰으로 열어보기</b><small>카메라로 QR을 찍으면 사용자 웹이 열립니다.<br>Safari/Chrome 메뉴에서 "홈 화면에 추가"를 누르면 앱 아이콘이 생깁니다.</small></div>
+        <div><b>스마트폰으로 열어보기</b><small>카메라로 QR을 찍으면 사용자 화면이 열립니다.<br>Safari나 Chrome 메뉴에서 "홈 화면에 추가"를 누르면 앱 아이콘이 생깁니다.</small></div>
       </div>
     </div>
   </div>
 
   <section>
-    <h2>공고의 필수 과업과 이 데모의 대응</h2>
+    <h2>공고의 필수 과업을 어디서 확인할 수 있는지</h2>
     <table>
-      <thead><tr><th>필수 과업</th><th>데모에서 확인하는 방법</th><th>상태</th></tr></thead>
+      <thead><tr><th>필수 과업</th><th>데모에서 보는 방법</th></tr></thead>
       <tbody>
-        <tr><td>지도와 리스트</td><td>홈 화면. 마커가 많은 곳은 숫자로 묶이고(클러스터), 확대하면 펼쳐집니다. 목록은 지도 영역 안의 샵을 가까운 순으로 보여줍니다.</td><td class="ok">동작</td></tr>
-        <tr><td>동 단위 필터</td><td>상단 "전체 지역" 버튼 → 시 탭 → 동 다중 선택 → 적용. 지도가 선택한 동 범위로 자동 이동합니다.</td><td class="ok">동작</td></tr>
-        <tr><td>샵 상세</td><td>상호, 사진(좌우 넘김), 주소, 전화번호, 영업시간, 소개, 위치 미니지도.</td><td class="ok">동작</td></tr>
-        <tr><td>전화하기</td><td>상세 하단 고정 버튼과 목록의 전화 아이콘. 스마트폰에서는 바로 통화 앱이 열립니다. 클릭 수는 관리자 대시보드에 집계됩니다.</td><td class="ok">동작</td></tr>
-        <tr><td>비회원 열람</td><td>로그인 없이 모든 화면 열람.</td><td class="ok">동작</td></tr>
-        <tr><td>PWA</td><td>manifest + 서비스워커 구성. Android는 설치 안내 배너, iOS는 "공유 → 홈 화면에 추가" 안내.</td><td class="ok">동작</td></tr>
-        <tr><td>관리자 웹</td><td>샵 등록·수정·숨김 / 사진 등록 / 지역(동) 설정 / 전화 클릭 통계.</td><td class="ok">동작</td></tr>
-        <tr><td>제휴·비제휴 구분 없음</td><td>모든 샵 동일 노출. 데이터 구조에는 2차용 필드 자리만 비워 둠.</td><td class="ok">반영</td></tr>
+        <tr><td>지도와 리스트</td><td>첫 화면입니다. 마커가 몰린 곳은 숫자로 묶이고 확대하면 풀립니다. 목록은 지도에 보이는 샵을 가까운 순으로 보여줍니다.</td></tr>
+        <tr><td>동 단위 필터</td><td>위쪽 "전체 지역" 버튼을 누르면 시 탭과 동 목록이 나옵니다. 여러 동을 고르고 적용하면 지도가 그 범위로 이동합니다.</td></tr>
+        <tr><td>샵 상세</td><td>상호, 사진(옆으로 넘김), 주소, 전화번호, 영업시간, 소개, 위치 지도가 있습니다. 영업시간을 보고 지금 영업중인지 표시합니다.</td></tr>
+        <tr><td>전화하기</td><td>상세 맨 아래 버튼과 목록의 전화 아이콘입니다. 스마트폰에서는 통화 앱이 바로 열립니다. 누른 횟수는 관리자 대시보드에 쌓입니다.</td></tr>
+        <tr><td>비회원 열람</td><td>로그인 화면이 없습니다.</td></tr>
+        <tr><td>PWA</td><td>Android에서는 설치 안내가 아래에 뜹니다. iPhone은 Safari 공유 버튼에서 "홈 화면에 추가"를 눌러야 해서 그 안내를 대신 띄웁니다.</td></tr>
+        <tr><td>관리자 웹</td><td>샵 등록, 수정, 숨김, 사진 등록, 동 노출 설정, 전화 클릭 통계까지 들어 있습니다.</td></tr>
+        <tr><td>제휴 구분 없음</td><td>모든 샵이 같은 모양으로 나옵니다. 데이터에 제휴 여부 칸만 비워 두었고 화면에는 쓰지 않습니다.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h2>관리자 웹 미리보기</h2>
-    <p class="lead" style="margin-top:0">PC 화면 기준입니다. 왼쪽 메뉴에서 샵 관리 → 노출 스위치를 꺼 보시면, 위 스마트폰 화면의 목록에서 해당 샵이 사라집니다.</p>
+    <h2>관리자 화면</h2>
+    <p class="lead" style="margin-top:0">PC에서 쓰는 화면입니다. 왼쪽 메뉴의 샵 관리에서 노출 스위치를 하나 꺼 보시면 위 스마트폰 화면의 목록에서 그 샵이 빠집니다.</p>
     <iframe class="admin-frame" src="admin.html" title="관리자 데모"></iframe>
   </section>
 
   <section>
-    <h2>데모와 실제 서비스의 차이 (정직하게)</h2>
-    <div class="grid3">
-      <div class="card"><h3>지도 엔진</h3>데모는 키 발급 없이 바로 뜨는 오픈 지도(OpenStreetMap)를 씁니다. 실제 서비스는 <b>카카오맵</b>으로 교체합니다. 앱 코드는 지도 어댑터 한 파일만 바라보도록 만들어 두어, 교체 시 다른 화면은 손대지 않습니다.</div>
-      <div class="card"><h3>데이터 저장</h3>데모는 샘플 41곳(상호·주소·전화는 가상)을 브라우저 안에 저장합니다. 실제 서비스는 서버 DB(PostgreSQL)와 API를 두고, 사진은 오브젝트 스토리지에 올립니다. 화면 코드는 동일하게 유지됩니다.</div>
-      <div class="card"><h3>관리자 로그인</h3>데모는 로그인 없이 열립니다. 실제 서비스는 관리자 계정 로그인과 접근 제한이 들어갑니다. 2차 항목(지역 ON/OFF, 제휴 필드, 예약 요청)은 같은 구조에 열만 추가하는 방식으로 붙입니다.</div>
-    </div>
+    <h2>이 데모와 실제 납품물이 다른 점</h2>
+    <p class="lead" style="margin-top:0">지도는 지금 OpenStreetMap을 쓰고 있습니다. 카카오맵은 개발자 키를 발급받고 도메인을 등록해야 뜨기 때문에, 미리 보여드리는 단계에서는 키 없이 열리는 지도를 썼습니다. 실제 개발에서는 카카오맵으로 바꿉니다. 지도를 다루는 코드를 파일 하나에 모아 두어서 그 파일만 바꾸면 되고 나머지 화면은 그대로입니다.</p>
+    <p class="lead">샵 41곳은 전부 제가 만든 가상의 데이터입니다. 상호, 주소, 전화번호 모두 실제 업체와 관계없고 사진도 무료 샘플 이미지입니다. 데이터는 지금 브라우저 안에만 저장되어 있어서 관리자 화면에서 고친 내용은 고친 사람의 브라우저에서만 보입니다. 실제 서비스는 서버에 데이터베이스를 두고 사진은 별도 저장소에 올립니다.</p>
+    <p class="lead">관리자 화면에 로그인이 없습니다. 실제 납품 시에는 관리자 계정과 로그인을 넣습니다. 공고에서 2차로 미뤄두신 항목(지역 켜고 끄기, 제휴 여부, 예약 요청)은 지금 데이터 구조에 칸을 비워 둔 상태라, 붙일 때 화면을 새로 짜지 않고 그 칸을 채우는 식으로 갑니다.</p>
   </section>
 
-  <footer>본 페이지는 프로젝트 제안을 위한 시연용이며, 표시된 매장 정보는 모두 가상의 샘플 데이터입니다. 브랜드명 "쉼콜"은 가칭입니다.</footer>
+  <footer>제안 검토용으로 만든 페이지입니다. 매장 정보는 모두 가상의 샘플이고, "쉼콜"이라는 이름은 임시로 붙인 것입니다.</footer>
 </div>
 
 <script>

@@ -22,7 +22,7 @@
     $('#stHidden').textContent = all.filter(s => s.visible === false).length;
     $('#stCalls').textContent = Object.values(stats).reduce((a, b) => a + b.length, 0);
     const rows = all.map(s => ({ s, n: (stats[s.id] || []).length, last: Math.max(0, ...(stats[s.id] || [])) })).sort((a, b) => b.n - a.n).slice(0, 10);
-    $('#callTable tbody').innerHTML = rows.map(r => `<tr><td>${r.s.name}</td><td>${r.s.dong}</td><td><b>${r.n}</b></td><td class="muted">${r.last ? new Date(r.last).toLocaleString('ko-KR') : '-'}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">아직 전화 클릭이 없습니다. 사용자 웹에서 "전화하기"를 눌러보세요.</td></tr>';
+    $('#callTable tbody').innerHTML = rows.map(r => `<tr><td>${r.s.name}</td><td>${r.s.dong}</td><td><b>${r.n}</b></td><td class="muted">${r.last ? new Date(r.last).toLocaleString('ko-KR') : '-'}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">아직 전화 클릭이 없습니다. 사용자 화면에서 전화 버튼을 눌러보세요.</td></tr>';
     const byDong = {}; all.forEach(s => byDong[s.dong] = (byDong[s.dong] || 0) + 1);
     $('#dongStats').innerHTML = Object.entries(byDong).sort((a, b) => b[1] - a[1]).map(([d, n]) => `<span>${d}<b>${n}</b></span>`).join('');
   }
@@ -95,7 +95,7 @@
   $('#form').addEventListener('submit', (e) => {
     e.preventDefault();
     const f = e.target, o = $('#selDong').selectedOptions[0];
-    if (!f.lat.value) return toast('지도에서 위치를 찍어주세요');
+    if (!f.lat.value) return toast('지도를 눌러 위치를 찍어주세요');
     const shop = {
       id: f.id.value || `n${Date.now()}`, name: f.name.value.trim(), type: f.type.value, city: f.city.value, gu: o.dataset.gu, dong: f.dong.value,
       address: f.address.value.trim(), phone: f.phone.value.trim(), lat: +f.lat.value, lng: +f.lng.value,
@@ -103,7 +103,7 @@
       intro: f.intro.value.trim(), photos: photos.length ? photos : [`https://picsum.photos/seed/${encodeURIComponent(f.name.value)}/640/420`],
       visible: f.visible.value === 'true', createdAt: new Date().toISOString().slice(0, 10),
     };
-    Store.upsert(shop); toast('저장했습니다. 사용자 웹에 바로 반영됩니다.'); location.hash = '#shops';
+    Store.upsert(shop); toast('저장했습니다. 사용자 화면에 바로 반영됩니다.'); location.hash = '#shops';
   });
   $('#btnDelete').addEventListener('click', () => { if (confirm('삭제할까요?')) { Store.remove($('#form').id.value); toast('삭제했습니다'); location.hash = '#shops'; } });
 

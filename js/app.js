@@ -129,7 +129,7 @@
         <p>${s.intro}</p>
         <div class="mini-map" id="miniMap"></div>
         <button class="link" id="btnOnMap">지도에서 위치 보기</button>
-        <p class="muted" style="margin-top:28px;font-size:12px;line-height:1.6">본 서비스는 매장 정보를 안내하는 서비스이며, 예약·이용·환불에 대한 책임은 각 매장에 있습니다. 잘못된 정보 또는 부적절한 업소는 <a href="mailto:help@example.com" style="color:inherit">신고</a>해 주세요.</p>
+        <p class="muted" style="margin-top:28px;font-size:12px;line-height:1.6">쉼콜은 매장 정보를 안내만 하고, 예약이나 이용, 환불은 각 매장이 책임집니다. 정보가 틀렸거나 문제가 있는 업소는 <a href="mailto:help@example.com" style="color:inherit">신고</a>해 주세요.</p>
       </div>
       <div class="cta">
         <a class="route" href="https://map.kakao.com/link/to/${encodeURIComponent(s.name)},${s.lat},${s.lng}" target="_blank" rel="noopener">길찾기</a>
